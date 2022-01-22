@@ -6,7 +6,7 @@ const testPostData = { title: 'Before all, create posts', description: 'post con
 
 const connect = async () => {
     // Connect to db
-    mongoose.connect(process.env.DATABASE_URI)
+    await mongoose.connect(process.env.DATABASE_URI)
         // mongoose.connect(process.env.DB_CONNECTION)
         .then(() => console.log("DB connected!"))
         .catch(err => console.log(err));
