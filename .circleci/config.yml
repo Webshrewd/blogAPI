@@ -20,6 +20,7 @@ jobs:
             - ./node_modules
       - run:
           name: run test
+          DATABASE_URI: ${DATABASE_URI}
           command: npm test --forceExit
       - store_artifacts:
           path: ~/blogAPI/blog_artifacts

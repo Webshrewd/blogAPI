@@ -6,7 +6,7 @@ const PostModel = require('../models/Post');
 
 describe('Post fetch test suite', () => {
 
-    beforeEach(async () => await db.connect());
+    beforeAll(async () => await db.connect());
     afterAll(async () => await db.close());
 
 
@@ -18,7 +18,7 @@ describe('Post fetch test suite', () => {
 
     test('GET /posts/validID', async () => {
         // Searches the post in the database... 
-        const post = await PostModel.findOne({});
+        const post = await PostModel.findOne({title: 'Before all, create posts'});
         const response = await request(app).get(`/posts/${post._id}`);
         expect(response.statusCode).toBe(200);
 
