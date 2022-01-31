@@ -14,7 +14,7 @@ describe('Post Update test suite', () => {
     it('PATCH /posts/validID', async () => {
         // Searches the post in the database...
         const post = await PostModel.findOne({})
-        const res = await request(app).patch(`/posts/${post.id}`).send({
+        const res = await request(app).patch(`/posts/${post._id}`).send({
             title: 'updated title',
             description: 'updated content',
         })
