@@ -29,7 +29,9 @@ app.use('/', indexRouter)
 app.use('/posts', postsRouter)
 
 // catch 404 and forward to error handler
-app.use(function (next) {
+
+// we intentionally add 'res' to fail lint checks
+app.use(function (next,res) {
     next(createError(404))
 })
 
