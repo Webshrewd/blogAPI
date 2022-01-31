@@ -1,7 +1,4 @@
 version: 2.1
-orbs:
-  python: circleci/python@1.2
-
 workflows:
   build-app-with-test:
     jobs:
@@ -23,8 +20,8 @@ jobs:
                 name: install dependencies
                 command: sudo npm install
           - run:
-                name: run test
-                command: npm test
+                name: lint code
+                command: npm run lint:check
 
   build-and-test:
       working_directory: ~/blogAPI
@@ -33,5 +30,11 @@ jobs:
       steps:
           - checkout
           - run:
-                name: lint code
-                command: npm run lint:check
+                name: update npm
+                command: 'sudo npm install -g npm'
+          - run:
+                name: install dependencies
+                command: sudo npm install
+          - run:
+                name: run tests
+                command: npm test
