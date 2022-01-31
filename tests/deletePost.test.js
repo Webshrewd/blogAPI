@@ -2,6 +2,8 @@ const request = require('supertest')
 var app = require('../app')
 const db = require('./testDBsetup')
 const PostModel = require('../models/Post')
+require('dotenv/config')
+
 
 describe('Post Delete test suite', () => {
     beforeAll(async () => await db.connect())

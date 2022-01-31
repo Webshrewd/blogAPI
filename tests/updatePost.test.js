@@ -2,6 +2,8 @@ const request = require('supertest')
 var app = require('../app')
 const db = require('./testDBsetup')
 const PostModel = require('../models/Post')
+require('dotenv/config')
+
 
 describe('Post Update test suite', () => {
     beforeAll(async () => await db.connect())
@@ -12,7 +14,7 @@ describe('Post Update test suite', () => {
     it('PATCH /posts/validID', async () => {
         // Searches the post in the database...
         const post = await PostModel.findOne({})
-        const res = await request(app).patch(`/posts/${post._id}`).send({
+        const res = await request(app).patch(`/posts/${post.id}`).send({
             title: 'updated title',
             description: 'updated content',
         })
