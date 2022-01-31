@@ -32,9 +32,7 @@ describe('Post insertion test suite', () => {
         })
         let err
         try {
-            const savedPostWithoutRequiredField =
-                await postWithoutRequiredField.save()
-            error = savedPostWithoutRequiredField
+            await postWithoutRequiredField.save()
         } catch (error) {
             err = error
         }
