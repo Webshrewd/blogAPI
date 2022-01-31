@@ -3,7 +3,9 @@ workflows:
     lint-build-test:
         jobs:
             - lint-code
-            - build-and-test
+            - build-and-test:
+                  requires:
+                      - lint-code
 jobs:
     lint-code:
         docker:
