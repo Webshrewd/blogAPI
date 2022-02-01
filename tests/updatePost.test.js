@@ -7,7 +7,7 @@ require('dotenv/config')
 
 describe('Post Update test suite', () => {
     beforeAll(async () => await db.connect())
-    afterAll(async () => await db.close())
+    // afterAll(async () => await db.close())
 
     // Update a valid post
 
