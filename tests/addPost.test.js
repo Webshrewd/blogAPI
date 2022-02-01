@@ -4,6 +4,7 @@ const postData = { title: 'Test posts', description: 'New post content' }
 const db = require('./testDBsetup')
 
 describe('Post insertion test suite', () => {
+    
     beforeAll(async () => await db.connect())
     afterAll(async () => await db.close())
 
