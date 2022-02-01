@@ -1,5 +1,6 @@
 # blogAPI
 
+[![CircleCI](https://circleci.com/gh/Dev-Elie/blogAPI/tree/main.svg?style=svg)](https://circleci.com/gh/Dev-Elie/blogAPI/tree/main)
 
 :hash: Installation.
 
