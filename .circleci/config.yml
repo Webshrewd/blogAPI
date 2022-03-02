@@ -3,9 +3,16 @@ workflows:
     lint-build-test:
         jobs:
             - lint-code
+            - hold: # <<< A job that will require manual approval in the CircleCI web application.
+                type: approval # <<< This key-value pair will set your workflow to a status of "On Hold"
+                requires: # We only run the "hold" job when lint-code has succeeded
+                 - lint-code
+            # On approval of the `hold` job, any successive job that requires the `hold` job will run.
+            # In this case, a user is manually triggering the deploy job.
             - build-and-test:
                   requires:
-                      - lint-code
+                      - hold
+        
 jobs:
     lint-code:
         docker:
