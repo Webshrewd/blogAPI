@@ -8,13 +8,13 @@ require('dotenv/config')
 describe('Post Delete test suite', () => {
     beforeAll(async () => await db.connect())
     afterAll(async () => await db.close())
+
     // Delete a valid post
 
     it('DELETE /posts/validID', async () => {
+        // Searches the post in the database...
+        const post = await PostModel.findOne({})
 
-        // Create a sample post
-        const post = await PostModel.create({ title: "Post 1", description: "Lorem ipsum" });
-        
         // Sends update request with the postsID
         const res = await request(app).delete(`/posts/${post._id}`)
 

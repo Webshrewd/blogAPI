@@ -47,7 +47,7 @@ router.patch('/:postID', async (req, res) => {
                 },
             }
         )
-        res.send(updatedPost)
+        res.status(200).json(updatedPost)
     } catch (error) {
         res.status(500).json({ message: error })
     }

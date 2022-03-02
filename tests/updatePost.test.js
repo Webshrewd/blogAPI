@@ -2,6 +2,7 @@ const request = require('supertest')
 var app = require('../app')
 const db = require('./testDBsetup')
 const PostModel = require('../models/Post')
+require('dotenv/config')
 
 
 describe('Post Update test suite', () => {
@@ -11,11 +12,12 @@ describe('Post Update test suite', () => {
     // Update a valid post
 
     it('PATCH /posts/validID', async () => {
-        const post = await PostModel.create({ title: "Post 1", description: "Lorem ipsum" });
-
-        const data = { title: "New title", description: "dolor sit amet" };
-
-        const res = await request(app).patch(`/posts/${post._id}`).send(data)
+        // Searches the post in the database...
+        const post = await PostModel.findOne({})
+        const res = await request(app).patch(`/posts/${post._id}`).send({
+            title: 'updated title',
+            description: 'updated content',
+        })
 
         expect(res.statusCode).toBe(200)
     })

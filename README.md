@@ -1,14 +1,12 @@
-# blogAPI
+# API Testing with JEST
 
-[![CircleCI](https://circleci.com/gh/Dev-Elie/blogAPI/tree/main.svg?style=svg)](https://circleci.com/gh/Dev-Elie/blogAPI/tree/main)
+[![CircleCI](https://circleci.com/gh/Dev-Elie/expressAPI/tree/main.svg?style=svg)](https://circleci.com/gh/Dev-Elie/expressAPI/tree/main)
 
 :hash: Installation.
 
 📌 Clone this project to your local machine as follows
 
-**`git clone https://github.com/Dev-Elie/blogAPI.git blog_API`**
-
-**`cd blog_API`**
+**`git clone https://github.com/Dev-Elie/expressAPI.git`**
 
 📌 Install all the dependencies
 
