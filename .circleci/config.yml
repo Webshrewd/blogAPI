@@ -1,6 +1,12 @@
 version: 2.1
+
+
 workflows:
     lint-build-test:
+        when:
+          or: # you can also specify multiple conditions here
+            - equal: [ main, << pipeline.git.branch >> ]
+            - equal: [ staging, << pipeline.git.branch >> ]
         jobs:
             - lint-code
             - hold: # <<< A job that will require manual approval in the CircleCI web application.
@@ -47,3 +53,4 @@ jobs:
             - run:
                   name: run tests
                   command: npm test
+
