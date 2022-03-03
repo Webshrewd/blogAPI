@@ -4,7 +4,7 @@ version: 2.1
 workflows:
     lint-build-test:
         when:
-          or: # you can also specify multiple conditions here
+          or: 
             - equal: [ master, << pipeline.git.branch >> ]
             - equal: [ staging, << pipeline.git.branch >> ]
         jobs:
